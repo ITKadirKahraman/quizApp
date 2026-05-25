@@ -7,6 +7,7 @@ let AUDIO_FAILED = new Audio('./assets/audio/failed.mp3');
 function init() {
     document.getElementById('nextBtn').disabled = true;
     document.getElementById('quizScreen').style.display = 'none';
+    document.getElementById('endScreen').style.display = 'none';
 }
 
 function selectCategory(category) {
@@ -14,6 +15,7 @@ function selectCategory(category) {
     currentQuestion = 0;
     rightAnswers = 0;
     document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('endScreen').style.display = 'none';
     document.getElementById('quizScreen').style.display = 'flex';
     showQuestion();
     updateProgressBar();
@@ -22,7 +24,22 @@ function selectCategory(category) {
 function showStartseite() {
     document.getElementById('startScreen').style.display = 'block';
     document.getElementById('quizScreen').style.display = "none";
+    document.getElementById('endScreen').style.display = 'none';
     resetAnswers();
+}
+
+function countQuestions() {
+    document.getElementById('counterQuestion').innerHTML = questions[currentCategory].length;
+}
+
+function counterRightAnswer() {
+    document.getElementById('counterRightAnswer').innerHTML = `${rightAnswers}`;
+}
+
+function showEndScreen() {
+    document.getElementById('endScreen').style.display = 'block';
+    document.getElementById('quizScreen').style.display = "none";
+    countQuestions();
 }
 
 function showQuestion() {
@@ -47,6 +64,7 @@ function answer(selection) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         rightAnswers++;
         AUDIO_RIGHT.play();
+        counterRightAnswer();
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
@@ -58,11 +76,7 @@ function answer(selection) {
 function nextQuestion() {
     currentQuestion++;
     if (currentQuestion >= questions[currentCategory].length) {
-
-        alert(
-            `Quiz beendet!\n\nRichtige Antworten: ${rightAnswers} von ${questions[currentCategory].length}`
-        );
-
+        showEndScreen();
         return;
     }
     showQuestion();
@@ -76,10 +90,14 @@ function resetAnswers() {
     document.getElementById('answer4').parentNode.classList.remove('bg-success', 'bg-danger');
 }
 
-
 function updateProgressBar() {
     let percent = ((currentQuestion + 1) / questions[currentCategory].length) * 100;
     percent = Math.round(percent);
     document.getElementById('progressBar').style.width = `${percent}%`;
     document.getElementById('progressBar').innerHTML = `${percent}%`;
+}
+
+function restartGame() {
+    document.getElementById('startScreen').style = '';
+    document.getElementById('endScreen').style.display = 'none';
 }

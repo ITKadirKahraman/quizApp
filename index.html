@@ -32,11 +32,28 @@
 
         <div class="cardRight">
 
+            <!--THE WELCOME SCREEN-->
             <div class="startBody" id="startScreen">
                 <img class="quizBrainStart" src="./assets/img/brainbg.jpg" alt="QuizBrain">
                 <div class="textCenter">
                    <strong>Welcome to the programming language quiz.</strong>
                     Ready for the Challenge?
+                </div>
+            </div>
+
+            <!--THE ENDSCREEN AFTER QUIZs-->
+
+            <div class="endBody" id="endScreen">
+                <img class="brainResultImg" src="./assets/img/brainResult.png" alt="Result">
+                <div class="endtextCenter">
+                    <strong>QUIZ BEENDET!</strong>
+                </div>
+                <div class="textResult">
+                    <p>Du hast insgesamt <b id="counterRightAnswer">0</b> Fragen von <b id="counterQuestion"></b> richtig beantwortet.</p>
+                </div>
+                <img class="tropyImg" src="./assets/img/tropy.png" alt="Tropy">
+                <div class="btnRow">
+                    <button class="btn btn-dark" onclick="restartGame()">Replay</button>
                 </div>
             </div>
 
