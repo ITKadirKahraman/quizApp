@@ -6,14 +6,23 @@ let AUDIO_FAILED = new Audio('./assets/audio/failed.mp3');
 
 function init() {
     document.getElementById('nextBtn').disabled = true;
+    document.getElementById('quizScreen').style.display = 'none';
 }
 
 function selectCategory(category) {
     currentCategory = category;
     currentQuestion = 0;
     rightAnswers = 0;
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('quizScreen').style.display = 'flex';
     showQuestion();
     updateProgressBar();
+}
+
+function showStartseite() {
+    document.getElementById('startScreen').style.display = 'block';
+    document.getElementById('quizScreen').style.display = "none";
+    resetAnswers();
 }
 
 function showQuestion() {

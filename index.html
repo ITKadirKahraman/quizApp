@@ -21,55 +21,68 @@
         <div class="cardLeft">
             <img class="cardLeftHeader" src="./assets/img/logo.png" class="card-img-top" alt="Logo">
             
-            <div class="btnContainer">
+            <div class="btnContainer" id="btnContainer">
+                <button class="btn btn-dark" onclick="showStartseite()">Startseite</button>
                 <button class="btn btn-dark" onclick="selectCategory('JavaScript')">JavaScript</button>
                 <button class="btn btn-dark" onclick="selectCategory('TypeScript')">TypeScript</button>
                 <button class="btn btn-dark" onclick="selectCategory('Python')">Python</button>
                 <button class="btn btn-dark" onclick="selectCategory('Rust')">Rust</button>
             </div>
         </div>
-        <div class="card-body">
-            <!--CARD HEADER QUESTION and ANSWER-->
-            <h5 class="card-title" id="questionsTitle"></h5>
 
-            <div class="card quizAnswerCard mb-2" onclick="answer('answer1')">
-                <div class="card-body" id="answer1">
-                    Antwort
+        <div class="cardRight">
+
+            <div class="startBody" id="startScreen">
+                <img class="quizBrainStart" src="./assets/img/brainbg.jpg" alt="QuizBrain">
+                <div class="textCenter">
+                   <strong>Welcome to the programming language quiz.</strong>
+                    Ready for the Challenge?
                 </div>
             </div>
 
-            <div class="card quizAnswerCard mb-2" onclick="answer('answer2')">
-                <div class="card-body" id="answer2">
-                    Antwort
+            <div class="card-body" id="quizScreen">
+                <!--CARD HEADER QUESTION and ANSWER-->
+                <h5 class="card-title" id="questionsTitle"></h5>
+
+                <div class="card quizAnswerCard mb-2" onclick="answer('answer1')">
+                    <div class="card-body" id="answer1">
+                        Antwort
+                    </div>
                 </div>
-            </div>
 
-            <div class="card quizAnswerCard mb-2" onclick="answer('answer3')">
-                <div class="card-body" id="answer3">
-                    Antwort
+                <div class="card quizAnswerCard mb-2" onclick="answer('answer2')">
+                    <div class="card-body" id="answer2">
+                        Antwort
+                    </div>
                 </div>
-            </div>
 
-            <div class="card quizAnswerCard mb-2" onclick="answer('answer4')">
-                <div class="card-body" id="answer4">
-                    Antwort
+                <div class="card quizAnswerCard mb-2" onclick="answer('answer3')">
+                    <div class="card-body" id="answer3">
+                        Antwort
+                    </div>
                 </div>
-            </div>
 
-            <!-- PROGRESSBAR -->
+                <div class="card quizAnswerCard mb-2" onclick="answer('answer4')">
+                    <div class="card-body" id="answer4">
+                        Antwort
+                    </div>
+                </div>
 
-            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" id="progressBar" style="width: 25%">25%</div>
-            </div>
+                <!-- PROGRESSBAR -->
 
-            <!--CARD FOOTER PREV and NEXT QUESTION and COUNTER-->
-            <div class="questionFooter">
-                <button class="btn btn-light" id="grevBtn" disabled onclick="prevQuestion()"><</button>
-                <span>
-                    <b id="position"></b> von
-                    <b id="allQuestions"></b> Fragen
-                </span>
-                <button class="btn btn-light" id="nextBtn" disabled onclick="nextQuestion()">></button>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" id="progressBar" style="width: 25%">25%</div>
+                </div>
+
+                <!--CARD FOOTER PREV and NEXT QUESTION and COUNTER-->
+                <div class="questionFooter">
+                    <button class="btn btn-light" id="grevBtn" disabled onclick="prevQuestion()"><</button>
+                    <span>
+                        <b id="position"></b> von
+                        <b id="allQuestions"></b> Fragen
+                    </span>
+                    <button class="btn btn-light" id="nextBtn" disabled onclick="nextQuestion()">></button>
+                </div>
             </div>
         </div>
     </div>
